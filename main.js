@@ -10,3 +10,44 @@ function isPrime(num) {
     if (num % i == 0 || num % (i + 2) == 0) return false;
   return true;
 }
+
+
+
+function double(arr){
+  let doubled = arr.map((nr) => nr * 2);
+  return doubled;
+}
+const doubled = double(data)
+// console.log(doubled)
+
+function getPrimes(arr){
+  let primes = arr.filter (isPrime);
+  return primes;
+}
+// console.log(getPrimes(data))
+let primes = getPrimes(data);
+const primeConvert = () => {
+  
+  let primesConverted = [];
+  for (let i = 0; i < primes.length; i++) {
+    let prime = {number: primes[i], isPrime: true}
+    primesConverted.push(prime)
+  }
+  return primesConverted;
+}
+let primesConverted = primeConvert(data);
+
+// console.log(primesConverted)
+
+const highestPrime = () => {
+  //how to use reduce method to get the highest number from an array?
+  let highest = primesConverted.reduce((acc, b) => acc > b.number ? acc : b.number, 0)
+  return highest;
+}
+// console.log(highestPrime()); 
+
+const sortPrimes = () => {
+  let primesSorted = primesConverted.sort((a, b) => a.number - b.number);
+  return primesSorted;
+}
+console.log(sortPrimes());
